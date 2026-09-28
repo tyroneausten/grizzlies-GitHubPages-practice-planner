@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JDF Grizzlies U8 Practice Planner - Coach Quick Guide</title>
+<style>
+  :root{
+    --black:#0b0b0b;
+    --charcoal:#202020;
+    --gold:#ffea00;
+    --gold-deep:#f3d900;
+    --red:#ed1c24;
+    --white:#ffffff;
+    --ice:#f5f7f8;
+    --line:#d7dadd;
+    --muted:#5e6267;
+  }
+  *{box-sizing:border-box}
+  html{background:#e9ecef}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--black);
+    background:var(--ice);
+    line-height:1.45;
+  }
+  .page{
+    max-width:980px;
+    margin:28px auto;
+    background:var(--white);
+    box-shadow:0 8px 28px rgba(0,0,0,.12);
+  }
+  .hero{
+    background:var(--black);
+    color:var(--white);
+    padding:24px 32px 22px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    border-bottom:8px solid var(--gold);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero:after{
+    content:"";
+    position:absolute;
+    right:-50px;
+    top:-90px;
+    width:250px;
+    height:250px;
+    border:22px solid var(--red);
+    border-radius:50%;
+    opacity:.13;
+  }
+  .logo-wrap{
+    width:116px;
+    height:116px;
+    flex:0 0 116px;
+    background:#fff;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border:4px solid var(--gold);
+  }
+  .logo-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  .logo-fallback{
+    display:none;
+    width:100%;
+    height:100%;
+    background:var(--black);
+    color:var(--gold);
+    font-weight:900;
+    font-size:16px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:8px;
+  }
+  .eyebrow{
+    font-weight:800;
+    letter-spacing:.12em;
+    color:var(--gold);
+    text-transform:uppercase;
+    font-size:13px;
+    margin-bottom:5px;
+  }
+  h1{
+    margin:0;
+    font-size:32px;
+    line-height:1.06;
+    letter-spacing:-.02em;
+  }
+  .subtitle{
+    margin:8px 0 0;
+    color:#e5e5e5;
+    font-size:16px;
+  }
+  .team-strip{
+    background:var(--gold);
+    color:var(--black);
+    font-weight:900;
+    text-align:center;
+    padding:9px 16px;
+    letter-spacing:.08em;
+  }
+  .content{padding:28px 32px 34px}
+  .intro{
+    background:#fffbea;
+    border-left:6px solid var(--gold-deep);
+    padding:14px 16px;
+    margin-bottom:22px;
+    font-size:15px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 18px;
+  }
+  .section{
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    break-inside:avoid;
+    background:#fff;
+  }
+  .section h2{
+    margin:0;
+    padding:10px 14px;
+    background:var(--black);
+    color:var(--white);
+    font-size:17px;
+    line-height:1.2;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .num{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--black);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    flex:0 0 27px;
+  }
+  .section-body{padding:12px 14px 14px}
+  .section-body p{margin:0 0 8px}
+  .section-body p:last-child{margin-bottom:0}
+  ol,ul{margin:5px 0 0 20px;padding:0}
+  li{margin:3px 0}
+  .pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+  .pill{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--black);
+    font-weight:800;
+    border:2px solid var(--black);
+    border-radius:999px;
+    padding:3px 10px;
+    font-size:13px;
+  }
+  .red-note{
+    margin-top:10px;
+    padding:9px 11px;
+    border-left:4px solid var(--red);
+    background:#fff1f2;
+    font-size:13px;
+  }
+  .workflow{
+    margin-top:20px;
+    background:var(--black);
+    color:var(--white);
+    border-radius:12px;
+    padding:16px 18px;
+    break-inside:avoid;
+  }
+  .workflow-title{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-weight:900;
+    font-size:13px;
+    margin-bottom:10px;
+  }
+  .workflow-line{
+    font-size:16px;
+    font-weight:800;
+    line-height:1.65;
+  }
+  .arrow{color:var(--red);font-weight:900;padding:0 4px}
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    align-items:center;
+    border-top:1px solid var(--line);
+    margin-top:22px;
+    padding-top:12px;
+    color:var(--muted);
+    font-size:12px;
+  }
+  .footer strong{color:var(--black)}
+  .print-tip{
+    color:var(--red);
+    font-weight:800;
+  }
+  a{color:#1b5b89}
+  @media(max-width:760px){
+    .page{margin:0;box-shadow:none}
+    .hero{padding:20px;gap:16px}
+    .logo-wrap{width:90px;height:90px;flex-basis:90px}
+    h1{font-size:26px}
+    .content{padding:20px}
+    .grid{grid-template-columns:1fr}
+  }
+  @media print{
+    @page{size:Letter;margin:.38in}
+    html,body{background:#fff}
+    body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .page{max-width:none;margin:0;box-shadow:none}
+    .hero{padding:18px 22px}
+    .logo-wrap{width:92px;height:92px;flex-basis:92px}
+    h1{font-size:27px}
+    .content{padding:18px 22px 18px}
+    .grid{gap:11px 13px}
+    .section h2{font-size:15px;padding:8px 11px}
+    .section-body{font-size:12.2px;padding:9px 11px 10px}
+    .intro{font-size:12.5px;margin-bottom:14px;padding:10px 12px}
+    .workflow{margin-top:14px;padding:12px 14px}
+    .workflow-line{font-size:13px}
+    .footer{margin-top:14px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="logo-wrap">
+      <img src="https://cloud3.rampinteractive.com/juandefucamha/images/team-logos/2fbfdf02-ad74-4268-835d-35bd9b3aea72_U11-A.png"
+           alt="Juan de Fuca Minor Hockey Grizzlies logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="logo-fallback">JDF<br>GRIZZLIES</div>
+    </div>
+    <div>
+      <div class="eyebrow">Juan de Fuca Minor Hockey - Grizzlies</div>
+      <h1>U8 Practice Planner<br>Coach Quick Guide</h1>
+      <p class="subtitle">A shared planning tool for U8-C1, U8-C2 and U8-C3 coaches.</p>
+    </div>
+  </header>
+
+  <div class="team-strip">U8-C1 &nbsp; | &nbsp; U8-C2 &nbsp; | &nbsp; U8-C3</div>
+
+  <main class="content">
+    <div class="intro">
+      <strong>What the planner does:</strong> Use one shared drill library while keeping practices organized by participating team. Practices can be for one team or a combination of teams, and saved plans include timing, drill descriptions, layouts and Print/PDF output.
+    </div>
+
+    <div class="grid">
+      <section class="section">
+        <h2><span class="num">1</span>First-time sign-in</h2>
+        <div class="section-body">
+          <ol>
+            <li>Open the Practice Planner.</li>
+            <li>Go to <strong>Settings &gt; Cloud Sync</strong>.</li>
+            <li>Enter your email and select <strong>Email Me a Sign-In Link</strong>.</li>
+            <li>Open the email and use the sign-in link.</li>
+            <li>If you are not yet a member, copy the displayed <strong>User ID</strong> and send it to Tyrone for activation.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">2</span>Set your default team</h2>
+        <div class="section-body">
+          <p>In <strong>Settings</strong>, choose your default team for new practices.</p>
+          <div class="pill-row"><span class="pill">U8-C1</span><span class="pill">U8-C2</span><span class="pill">U8-C3</span></div>
+          <p style="margin-top:9px">Your team is pre-selected when you start a practice, but you can add other teams for combined ice sessions.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">3</span>Create a practice</h2>
+        <div class="section-body">
+          <p>Select <strong>Plan a Practice</strong>, then enter:</p>
+          <ul>
+            <li>Date and start time</li>
+            <li>Arena</li>
+            <li>Participating team(s)</li>
+          </ul>
+          <p style="margin-top:8px">For a combined practice, select multiple teams - for example <strong>U8-C1 + U8-C2</strong>.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">4</span>Choose the drills</h2>
+        <div class="section-body">
+          <p>The practice flow is:</p>
+          <p><strong>Free Skate - Warmup - Stations - Game</strong></p>
+          <p>Select drills from the shared library. The finished plan shows the drill name, description and saved layout/sketch.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">5</span>Edit or sketch a drill</h2>
+        <div class="section-body">
+          <p>Open a drill and choose <strong>Edit Drill</strong>. Under <strong>Sketch my own drill</strong> you can use:</p>
+          <ul>
+            <li>Full Ice, Half Ice, Corner or Center Ice</li>
+            <li>Freehand drawing, X and O markers</li>
+            <li>Black, red or blue ink</li>
+            <li>Undo and Clear</li>
+          </ul>
+          <p style="margin-top:8px">Choose <strong>Use This Sketch</strong>, then save the drill.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">6</span>Saved & recent practices</h2>
+        <div class="section-body">
+          <p>The home page and <strong>Saved Practices</strong> show which teams are participating.</p>
+          <div class="pill-row"><span class="pill">U8-C2</span><span class="pill">U8-C1 + U8-C3</span></div>
+          <p style="margin-top:9px">This lets all coaches use the shared planner while keeping each team's practices easy to identify.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">7</span>Print or save as PDF</h2>
+        <div class="section-body">
+          <p>Open the finished practice and select <strong>Print / PDF</strong>.</p>
+          <p>The formatted plan includes the date, arena, teams, schedule, descriptions and drill layouts.</p>
+          <div class="red-note"><strong>Tip:</strong> On most computers, choose <strong>Save as PDF</strong> in the printer window to create an electronic copy.</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="num">8</span>Sharing practices</h2>
+        <div class="section-body">
+          <p>Practices can be shared between coaches. Team selections and drill information stay with the practice.</p>
+          <p>A coach can therefore build a joint <strong>U8-C1 + U8-C3</strong> session once and share the completed plan.</p>
+        </div>
+      </section>
+
+      <section class="section" style="grid-column:1 / -1">
+        <h2><span class="num">9</span>Cloud syncing</h2>
+        <div class="section-body">
+          <p>When signed in, drills and practices are stored in the shared Grizzlies cloud workspace. If another coach has recently made changes, use <strong>Settings &gt; Cloud Sync &gt; Sync Now</strong>.</p>
+          <p>If the browser still looks out of date on Windows, use <strong>Ctrl + Shift + R</strong> once to force-refresh the planner.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="workflow">
+      <div class="workflow-title">Quick workflow</div>
+      <div class="workflow-line">Open Planner <span class="arrow">›</span> Plan a Practice <span class="arrow">›</span> Select Team(s) <span class="arrow">›</span> Pick Warmup <span class="arrow">›</span> Pick Stations <span class="arrow">›</span> Pick Game <span class="arrow">›</span> Review <span class="arrow">›</span> Save <span class="arrow">›</span> Print / Share</div>
+    </div>
+
+    <div class="footer">
+      <div><strong>JDF Grizzlies U8 Practice Planner</strong><br>Coach quick reference</div>
+      <div class="print-tip">Print-friendly: use your browser's Print &gt; Save as PDF</div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
