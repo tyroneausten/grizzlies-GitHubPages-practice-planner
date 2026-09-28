@@ -1,4 +1,4 @@
-const CACHE='grizzlies-github-pages-20260928-v3';
+const CACHE='grizzlies-github-pages-20260928-v4-teams';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./hockey-canada-u7-u9-catalog.json','./hc-follow-your-pass-layout.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
