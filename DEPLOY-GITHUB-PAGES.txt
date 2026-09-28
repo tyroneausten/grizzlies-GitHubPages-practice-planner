@@ -1,0 +1,32 @@
+GRIZZLIES PRACTICE PLANNER - GITHUB PAGES DEPLOYMENT
+
+1. Open your GitHub repository.
+2. Make sure these files are at the repository TOP LEVEL:
+   index.html
+   404.html
+   sw.js
+   manifest.webmanifest
+   hockey-canada-u7-u9-catalog.json
+   icon.svg
+   icon-192.png
+   icon-512.png
+   hc-follow-your-pass-layout.png
+   .nojekyll
+   README.md
+
+   IMPORTANT: Do not upload the containing folder. Upload the files INSIDE it.
+
+3. Commit to the main branch.
+4. Open GitHub repository Settings.
+5. Click Pages in the left sidebar.
+6. Under Build and deployment:
+   Source: Deploy from a branch
+   Branch: main
+   Folder: /(root)
+7. Click Save.
+8. Wait for GitHub to display your published URL.
+9. In Supabase, go to Authentication > URL Configuration > Redirect URLs.
+10. Add your exact GitHub Pages URL, including the trailing slash.
+11. Open the GitHub Pages URL and press Ctrl+Shift+R once.
+
+No Netlify account, Netlify credits, Node.js, npm, or command line is required.
